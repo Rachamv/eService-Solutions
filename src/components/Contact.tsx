@@ -13,9 +13,44 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
+    
+    // Create mailto URL with form data
+    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.service || 'General'}`);
+    const body = encodeURIComponent(`
+Hello eService Solutions Team,
+
+I'm interested in your services and would like to get in touch.
+
+Contact Details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Company/Organization: ${formData.company || 'Not specified'}
+- Service Interest: ${formData.service || 'Not specified'}
+
+Message:
+${formData.message}
+
+Best regards,
+${formData.name}
+    `);
+    
+    const mailtoUrl = `mailto:help.eservicesolution@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Show success message
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      service: '',
+      message: ''
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -30,21 +65,21 @@ const Contact: React.FC = () => {
       icon: Mail,
       title: 'General Inquiries',
       description: 'Questions about our services, approach, or community impact?',
-      contact: 'hello@eservicesolutions.com',
+      contact: 'help.eservicesolution@gmail.com',
       response: 'Within 24 hours'
     },
     {
       icon: Phone,
       title: 'Project Inquiries',
       description: 'Ready to start a website, branding, or technical integration project?',
-      contact: 'projects@eservicesolutions.com',
+      contact: 'help.eservicesolution@gmail.com',
       response: 'Within 48 hours'
     },
     {
       icon: MessageCircle,
       title: 'Training Requests',
       description: 'Looking for digital skills training or educational partnerships?',
-      contact: 'training@eservicesolutions.com',
+      contact: 'help.eservicesolution@gmail.com',
       response: 'Within 3 business days'
     }
   ];
@@ -90,8 +125,9 @@ const Contact: React.FC = () => {
             {isSubmitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-success-green mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-success-green mb-2">Message Sent Successfully!</h4>
-                <p className="text-professional-gray">We'll get back to you within 24 hours.</p>
+                <h4 className="text-xl font-semibold text-success-green mb-2">Email Client Opened!</h4>
+                <p className="text-professional-gray mb-4">Your default email application should now be open with your message pre-filled.</p>
+                <p className="text-sm text-professional-gray">If it didn't open automatically, please send your message to: <strong>help.eservicesolution@gmail.com</strong></p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -156,11 +192,11 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent transition-all duration-200"
                   >
                     <option value="">Select a service</option>
-                    <option value="technical">Technical Solutions</option>
-                    <option value="branding">Branding & Growth</option>
-                    <option value="training">Training & Coaching</option>
-                    <option value="partnership">Partnership Opportunities</option>
-                    <option value="other">Other</option>
+                    <option value="Technical Solutions">Technical Solutions</option>
+                    <option value="Branding & Growth">Branding & Growth</option>
+                    <option value="Training & Coaching">Training & Coaching</option>
+                    <option value="Partnership Opportunities">Partnership Opportunities</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
@@ -184,9 +220,13 @@ const Contact: React.FC = () => {
                   type="submit"
                   className="group w-full inline-flex items-center justify-center px-8 py-4 bg-eservice-blue text-white font-semibold rounded-lg hover:bg-eservice-blue/90 transition-all duration-200 transform hover:scale-105"
                 >
-                  Send Message
+                  Send Message via Email
                   <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
+                
+                <p className="text-xs text-professional-gray text-center">
+                  This will open your email client with the message pre-filled to send to help.eservicesolution@gmail.com
+                </p>
               </form>
             )}
           </div>
@@ -206,13 +246,36 @@ const Contact: React.FC = () => {
                       <div className="flex-1">
                         <h4 className="font-semibold text-eservice-blue mb-1">{method.title}</h4>
                         <p className="text-sm text-professional-gray mb-2">{method.description}</p>
-                        <p className="text-sm font-medium text-knowledge-teal mb-1">{method.contact}</p>
+                        <a 
+                          href={`mailto:${method.contact}`}
+                          className="text-sm font-medium text-knowledge-teal hover:text-knowledge-teal/80 transition-colors duration-200 mb-1 block"
+                        >
+                          {method.contact}
+                        </a>
                         <p className="text-xs text-professional-gray">Response time: {method.response}</p>
                       </div>
                     </div>
                   );
                 })}
               </div>
+            </div>
+
+            {/* Direct Email CTA */}
+            <div className="bg-knowledge-teal rounded-xl p-6 text-white">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6" />
+                <h4 className="font-semibold">Send Direct Email</h4>
+              </div>
+              <p className="text-sm mb-4 opacity-90">
+                Prefer to use your own email client? Send us a message directly.
+              </p>
+              <a
+                href="mailto:help.eservicesolution@gmail.com?subject=Inquiry from eService Solutions Website&body=Hello eService Solutions Team,%0D%0A%0D%0AI'm interested in your services and would like to discuss:%0D%0A%0D%0A[Please describe your needs here]%0D%0A%0D%0ABest regards"
+                className="inline-flex items-center px-4 py-2 bg-white text-knowledge-teal font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Open Email Client
+              </a>
             </div>
 
             {/* Office Hours */}
