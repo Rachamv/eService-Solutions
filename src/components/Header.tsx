@@ -25,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
     { id: 'training', label: 'Training' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
+    { id: 'coming-soon', label: 'Coming Soon', highlight: true },
   ];
 
   return (
@@ -48,11 +49,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-knowledge-teal ${
+                className={`text-sm font-medium transition-colors duration-200 hover:text-knowledge-teal relative ${
                   activeSection === item.id ? 'text-knowledge-teal' : 'text-professional-gray'
-                }`}
+                } ${item.highlight ? 'bg-gradient-to-r from-eservice-blue to-knowledge-teal text-white px-3 py-1 rounded-full hover:shadow-lg' : ''}`}
               >
                 {item.label}
+                {item.highlight && (
+                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-alert-orange rounded-full animate-pulse"></span>
+                )}
               </button>
             ))}
           </nav>
@@ -95,9 +99,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                   }}
                   className={`block w-full text-left py-2 text-base font-medium transition-colors duration-200 ${
                     activeSection === item.id ? 'text-knowledge-teal' : 'text-professional-gray hover:text-knowledge-teal'
-                  }`}
+                  } ${item.highlight ? 'bg-gradient-to-r from-eservice-blue to-knowledge-teal text-white px-3 py-2 rounded-lg' : ''}`}
                 >
                   {item.label}
+                  {item.highlight && <span className="ml-2 text-xs">🚀</span>}
                 </button>
               ))}
               <div className="pt-4 space-y-3">
