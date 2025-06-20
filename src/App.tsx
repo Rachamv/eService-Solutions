@@ -5,31 +5,42 @@ import WhoWeAre from './components/WhoWeAre';
 import Services from './components/Services';
 import Training from './components/Training';
 import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ComingSoon from './components/ComingSoon';
 import TrainingApplication from './components/TrainingApplication';
+import ContactPage from './components/ContactPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showComingSoon, setShowComingSoon] = useState(false);
   const [showTrainingApplication, setShowTrainingApplication] = useState(false);
+  const [showContactPage, setShowContactPage] = useState(false);
 
   const handleNavigate = (section: string) => {
     if (section === 'coming-soon') {
       setShowComingSoon(true);
       setShowTrainingApplication(false);
+      setShowContactPage(false);
       return;
     }
     
     if (section === 'training-application') {
       setShowTrainingApplication(true);
       setShowComingSoon(false);
+      setShowContactPage(false);
+      return;
+    }
+
+    if (section === 'contact') {
+      setShowContactPage(true);
+      setShowComingSoon(false);
+      setShowTrainingApplication(false);
       return;
     }
     
     setShowComingSoon(false);
     setShowTrainingApplication(false);
+    setShowContactPage(false);
     setActiveSection(section);
     
     if (section === 'home') {
@@ -45,10 +56,10 @@ function App() {
   };
 
   useEffect(() => {
-    if (showComingSoon || showTrainingApplication) return;
+    if (showComingSoon || showTrainingApplication || showContactPage) return;
     
     const handleScroll = () => {
-      const sections = ['home', 'services', 'training', 'about', 'contact'];
+      const sections = ['home', 'services', 'training', 'about'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -67,7 +78,7 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showComingSoon, showTrainingApplication]);
+  }, [showComingSoon, showTrainingApplication, showContactPage]);
 
   if (showComingSoon) {
     return (
@@ -91,6 +102,14 @@ function App() {
     );
   }
 
+  if (showContactPage) {
+    return (
+      <div className="min-h-screen bg-white font-inter">
+        <ContactPage onNavigate={handleNavigate} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white font-inter">
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
@@ -104,7 +123,6 @@ function App() {
         <Services onNavigate={handleNavigate} />
         <Training onNavigate={handleNavigate} />
         <About />
-        <Contact />
       </main>
       
       <Footer onNavigate={handleNavigate} />
