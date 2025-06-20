@@ -1,11 +1,19 @@
 import React from 'react';
-import { ArrowRight, Play, Users, Globe, Award } from 'lucide-react';
+import { ArrowRight, Play, Users, Globe, Award, MessageCircle } from 'lucide-react';
 
 interface HeroProps {
   onNavigate: (section: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
+
+  const handleWhatsAppContact = () => {
+    const message = "Hi! I'm interested in learning more about eService Solutions and how you can help my business grow.";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-eservice-blue/5 via-white to-knowledge-teal/5 overflow-hidden">
       {/* Background Elements */}
@@ -38,6 +46,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button 
+                onClick={handleWhatsAppContact}
+                className="group inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all duration-200 transform hover:scale-105"
+              >
+                <MessageCircle className="mr-2 w-5 h-5" />
+                Chat on WhatsApp
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+              <button 
                 onClick={() => onNavigate('contact')}
                 className="group inline-flex items-center justify-center px-8 py-4 bg-eservice-blue text-white font-semibold rounded-lg hover:bg-eservice-blue/90 transition-all duration-200 transform hover:scale-105"
               >
@@ -45,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
               <button 
-                onClick={() => onNavigate('training')}
+                onClick={() => onNavigate('training-application')}
                 className="group inline-flex items-center justify-center px-8 py-4 bg-knowledge-teal text-white font-semibold rounded-lg hover:bg-knowledge-teal/90 transition-all duration-200 transform hover:scale-105"
               >
                 Apply for Skills Training

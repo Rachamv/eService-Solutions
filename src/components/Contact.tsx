@@ -11,33 +11,38 @@ const Contact: React.FC = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
+
+  const handleWhatsAppContact = (inquiry?: string) => {
+    const message = inquiry 
+      ? `Hi! I'm interested in ${inquiry}. Can you provide more details?`
+      : "Hi! I'd like to learn more about eService Solutions and your services.";
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create mailto URL with form data
-    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.service || 'General'}`);
-    const body = encodeURIComponent(`
-Hello eService Solutions Team,
+    // Create WhatsApp message with form data
+    const whatsappMessage = `
+📧 NEW CONTACT FORM SUBMISSION
 
-I'm interested in your services and would like to get in touch.
-
-Contact Details:
-- Name: ${formData.name}
-- Email: ${formData.email}
-- Company/Organization: ${formData.company || 'Not specified'}
-- Service Interest: ${formData.service || 'Not specified'}
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'Not specified'}
+Service Interest: ${formData.service || 'Not specified'}
 
 Message:
 ${formData.message}
 
 Best regards,
 ${formData.name}
-    `);
+    `.trim();
     
-    const mailtoUrl = `mailto:help.eservicesolution@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoUrl;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
     
     // Show success message
     setIsSubmitted(true);
@@ -62,25 +67,28 @@ ${formData.name}
 
   const contactMethods = [
     {
+      icon: MessageCircle,
+      title: 'WhatsApp Chat',
+      description: 'Get instant responses to your questions',
+      contact: 'Chat Now',
+      response: 'Usually within minutes',
+      action: () => handleWhatsAppContact()
+    },
+    {
       icon: Mail,
-      title: 'General Inquiries',
-      description: 'Questions about our services, approach, or community impact?',
+      title: 'Email Support',
+      description: 'Detailed inquiries and project discussions',
       contact: 'help.eservicesolution@gmail.com',
-      response: 'Within 24 hours'
+      response: 'Within 24 hours',
+      action: () => window.location.href = 'mailto:help.eservicesolution@gmail.com'
     },
     {
       icon: Phone,
-      title: 'Project Inquiries',
-      description: 'Ready to start a website, branding, or technical integration project?',
-      contact: 'help.eservicesolution@gmail.com',
-      response: 'Within 48 hours'
-    },
-    {
-      icon: MessageCircle,
-      title: 'Training Requests',
-      description: 'Looking for digital skills training or educational partnerships?',
-      contact: 'help.eservicesolution@gmail.com',
-      response: 'Within 3 business days'
+      title: 'Phone Support',
+      description: 'Direct consultation and urgent matters',
+      contact: '+234 802 129 5589',
+      response: 'Business hours',
+      action: () => window.location.href = 'tel:+2348021295589'
     }
   ];
 
@@ -89,19 +97,22 @@ ${formData.name}
       title: "I'm a Business Owner or Entrepreneur",
       description: 'Schedule Free 30-Minute Discovery Call',
       timeline: 'Call within 3 business days, proposal within 48 hours',
-      color: 'eservice-blue'
+      color: 'eservice-blue',
+      action: () => handleWhatsAppContact('a business consultation and discovery call')
     },
     {
       title: 'I Want to Learn Digital Skills',
       description: 'Apply for Upcoming Bootcamp or Request Custom Training',
       timeline: 'Application review within 1 week, program start dates monthly',
-      color: 'knowledge-teal'
+      color: 'knowledge-teal',
+      action: () => handleWhatsAppContact('training programs and bootcamp applications')
     },
     {
       title: 'I Want to Partner or Collaborate',
       description: 'Submit Partnership Inquiry or Schedule Strategic Discussion',
       timeline: 'Initial discussion within 1 week, partnership development 2-4 weeks',
-      color: 'eservice-blue'
+      color: 'eservice-blue',
+      action: () => handleWhatsAppContact('partnership and collaboration opportunities')
     }
   ];
 
@@ -125,9 +136,15 @@ ${formData.name}
             {isSubmitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-success-green mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-success-green mb-2">Email Client Opened!</h4>
-                <p className="text-professional-gray mb-4">Your default email application should now be open with your message pre-filled.</p>
-                <p className="text-sm text-professional-gray">If it didn't open automatically, please send your message to: <strong>help.eservicesolution@gmail.com</strong></p>
+                <h4 className="text-xl font-semibold text-success-green mb-2">Message Sent via WhatsApp!</h4>
+                <p className="text-professional-gray mb-4">Your message has been sent through WhatsApp. We'll respond shortly!</p>
+                <button
+                  onClick={() => handleWhatsAppContact()}
+                  className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Continue Chat
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -218,14 +235,15 @@ ${formData.name}
 
                 <button
                   type="submit"
-                  className="group w-full inline-flex items-center justify-center px-8 py-4 bg-eservice-blue text-white font-semibold rounded-lg hover:bg-eservice-blue/90 transition-all duration-200 transform hover:scale-105"
+                  className="group w-full inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all duration-200 transform hover:scale-105"
                 >
-                  Send Message via Email
+                  <MessageCircle className="mr-2 w-5 h-5" />
+                  Send via WhatsApp
                   <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
                 
                 <p className="text-xs text-professional-gray text-center">
-                  This will open your email client with the message pre-filled to send to help.eservicesolution@gmail.com
+                  This will send your message directly through WhatsApp for faster response
                 </p>
               </form>
             )}
@@ -239,19 +257,16 @@ ${formData.name}
                 {contactMethods.map((method, index) => {
                   const IconComponent = method.icon;
                   return (
-                    <div key={index} className="flex items-start space-x-4 p-4 bg-light-gray rounded-xl">
+                    <div key={index} className="flex items-start space-x-4 p-4 bg-light-gray rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer" onClick={method.action}>
                       <div className="w-12 h-12 bg-knowledge-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
                         <IconComponent className="w-6 h-6 text-knowledge-teal" />
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-eservice-blue mb-1">{method.title}</h4>
                         <p className="text-sm text-professional-gray mb-2">{method.description}</p>
-                        <a 
-                          href={`mailto:${method.contact}`}
-                          className="text-sm font-medium text-knowledge-teal hover:text-knowledge-teal/80 transition-colors duration-200 mb-1 block"
-                        >
+                        <div className="text-sm font-medium text-knowledge-teal hover:text-knowledge-teal/80 transition-colors duration-200 mb-1">
                           {method.contact}
-                        </a>
+                        </div>
                         <p className="text-xs text-professional-gray">Response time: {method.response}</p>
                       </div>
                     </div>
@@ -260,22 +275,21 @@ ${formData.name}
               </div>
             </div>
 
-            {/* Direct Email CTA */}
-            <div className="bg-knowledge-teal rounded-xl p-6 text-white">
-              <div className="flex items-center space-x-3 mb-4">
-                <Mail className="w-6 h-6" />
-                <h4 className="font-semibold">Send Direct Email</h4>
+            {/* WhatsApp QR Code */}
+            <div className="bg-green-50 rounded-xl p-6">
+              <div className="text-center">
+                <h4 className="font-semibold text-green-800 mb-4">Scan to Chat on WhatsApp</h4>
+                <div className="bg-white p-4 rounded-lg inline-block shadow-sm">
+                  <img 
+                    src="/image.png" 
+                    alt="WhatsApp QR Code" 
+                    className="w-32 h-32 mx-auto"
+                  />
+                </div>
+                <p className="text-sm text-green-700 mt-3">
+                  Scan with your phone's camera to start chatting instantly
+                </p>
               </div>
-              <p className="text-sm mb-4 opacity-90">
-                Prefer to use your own email client? Send us a message directly.
-              </p>
-              <a
-                href="mailto:help.eservicesolution@gmail.com?subject=Inquiry from eService Solutions Website&body=Hello eService Solutions Team,%0D%0A%0D%0AI'm interested in your services and would like to discuss:%0D%0A%0D%0A[Please describe your needs here]%0D%0A%0D%0ABest regards"
-                className="inline-flex items-center px-4 py-2 bg-white text-knowledge-teal font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200"
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                Open Email Client
-              </a>
             </div>
 
             {/* Office Hours */}
@@ -287,6 +301,7 @@ ${formData.name}
               <div className="space-y-2 text-sm">
                 <p><strong>Primary Time Zone:</strong> GMT (Greenwich Mean Time)</p>
                 <p><strong>Working Hours:</strong> Monday–Friday, 9:00 AM – 5:00 PM GMT</p>
+                <p><strong>WhatsApp Support:</strong> Available 24/7 for urgent matters</p>
                 <p><strong>Weekend Support:</strong> Emergency project issues only</p>
               </div>
             </div>
@@ -320,10 +335,18 @@ ${formData.name}
           <h3 className="text-2xl font-bold text-eservice-blue text-center mb-12">Quick Start Options</h3>
           <div className="grid lg:grid-cols-3 gap-8">
             {quickStartOptions.map((option, index) => (
-              <div key={index} className={`bg-${option.color}/5 rounded-2xl p-6 border border-${option.color}/20 hover:shadow-lg transition-all duration-300`}>
+              <div 
+                key={index} 
+                className={`bg-${option.color}/5 rounded-2xl p-6 border border-${option.color}/20 hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-2`}
+                onClick={option.action}
+              >
                 <h4 className={`font-bold text-${option.color} mb-3`}>{option.title}</h4>
                 <p className="font-medium text-professional-gray mb-4">{option.description}</p>
-                <p className="text-sm text-professional-gray">{option.timeline}</p>
+                <p className="text-sm text-professional-gray mb-4">{option.timeline}</p>
+                <button className={`inline-flex items-center text-${option.color} font-medium hover:text-${option.color}/80 transition-colors duration-200`}>
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Start WhatsApp Chat
+                </button>
               </div>
             ))}
           </div>

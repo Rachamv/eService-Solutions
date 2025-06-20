@@ -1,11 +1,22 @@
 import React from 'react';
-import { Users, BookOpen, Building, ArrowRight, Star, TrendingUp } from 'lucide-react';
+import { Users, BookOpen, Building, ArrowRight, Star, TrendingUp, MessageCircle } from 'lucide-react';
 
 interface TrainingProps {
   onNavigate: (section: string) => void;
 }
 
 const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
+  const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
+
+  const handleWhatsAppContact = (program?: string) => {
+    const message = program 
+      ? `Hi! I'm interested in the ${program} training program. Can you provide more details?`
+      : "Hi! I'd like to learn more about your training programs.";
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+  };
+
   const trainingStreams = [
     {
       icon: Users,
@@ -203,11 +214,18 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => onNavigate('contact')}
+              onClick={() => onNavigate('training-application')}
               className="group inline-flex items-center justify-center px-8 py-4 bg-knowledge-teal text-white font-semibold rounded-lg hover:bg-knowledge-teal/90 transition-all duration-200"
             >
-              Apply for Upcoming Bootcamp
+              Apply for Training Programs
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+            </button>
+            <button 
+              onClick={() => handleWhatsAppContact()}
+              className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all duration-200"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Chat on WhatsApp
             </button>
             <button 
               onClick={() => onNavigate('contact')}

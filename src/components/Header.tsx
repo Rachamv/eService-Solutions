@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -9,6 +9,14 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
+
+  const handleWhatsAppContact = () => {
+    const message = "Hi! I'd like to learn more about eService Solutions and your services.";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,13 +72,20 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <button 
+              onClick={handleWhatsAppContact}
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-200"
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </button>
+            <button 
               onClick={() => onNavigate('contact')}
               className="px-4 py-2 text-sm font-medium text-eservice-blue border border-eservice-blue rounded-lg hover:bg-eservice-blue hover:text-white transition-colors duration-200"
             >
               Get Consultation
             </button>
             <button 
-              onClick={() => onNavigate('training')}
+              onClick={() => onNavigate('training-application')}
               className="px-4 py-2 text-sm font-medium text-white bg-knowledge-teal rounded-lg hover:bg-knowledge-teal/90 transition-colors duration-200"
             >
               Apply for Training
@@ -108,6 +123,16 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
               <div className="pt-4 space-y-3">
                 <button 
                   onClick={() => {
+                    handleWhatsAppContact();
+                    setIsMenuOpen(false);
+                  }}
+                  className="flex items-center w-full px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-200"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  WhatsApp Chat
+                </button>
+                <button 
+                  onClick={() => {
                     onNavigate('contact');
                     setIsMenuOpen(false);
                   }}
@@ -117,7 +142,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                 </button>
                 <button 
                   onClick={() => {
-                    onNavigate('training');
+                    onNavigate('training-application');
                     setIsMenuOpen(false);
                   }}
                   className="block w-full px-4 py-2 text-sm font-medium text-white bg-knowledge-teal rounded-lg hover:bg-knowledge-teal/90 transition-colors duration-200"

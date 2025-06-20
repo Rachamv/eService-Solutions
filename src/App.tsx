@@ -8,18 +8,28 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ComingSoon from './components/ComingSoon';
+import TrainingApplication from './components/TrainingApplication';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showTrainingApplication, setShowTrainingApplication] = useState(false);
 
   const handleNavigate = (section: string) => {
     if (section === 'coming-soon') {
       setShowComingSoon(true);
+      setShowTrainingApplication(false);
+      return;
+    }
+    
+    if (section === 'training-application') {
+      setShowTrainingApplication(true);
+      setShowComingSoon(false);
       return;
     }
     
     setShowComingSoon(false);
+    setShowTrainingApplication(false);
     setActiveSection(section);
     
     if (section === 'home') {
@@ -35,7 +45,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (showComingSoon) return;
+    if (showComingSoon || showTrainingApplication) return;
     
     const handleScroll = () => {
       const sections = ['home', 'services', 'training', 'about', 'contact'];
@@ -57,7 +67,7 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showComingSoon]);
+  }, [showComingSoon, showTrainingApplication]);
 
   if (showComingSoon) {
     return (
@@ -69,6 +79,14 @@ function App() {
           launchDate="2025-08-15"
           onNavigate={handleNavigate}
         />
+      </div>
+    );
+  }
+
+  if (showTrainingApplication) {
+    return (
+      <div className="min-h-screen bg-white font-inter">
+        <TrainingApplication onNavigate={handleNavigate} />
       </div>
     );
   }
