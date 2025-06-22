@@ -1,5 +1,5 @@
+import { ArrowRight, Award, Globe, Mail, MessageCircle, Users } from 'lucide-react';
 import React from 'react';
-import { ArrowRight,Users, Globe, Award, MessageCircle, Mail  } from 'lucide-react';
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -63,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "mailto:hello@eservicesolutions.com?subject=Free Consultation Request&body=Hi eService Solutions Team,%0D%0A%0D%0AI would like to schedule a free consultation to discuss my project needs.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThank you!")
+                    "mailto:help.eservicesolution@gmail.com?subject=Free Consultation Request&body=Hi eService Solutions Team,%0D%0A%0D%0AI would like to schedule a free consultation to discuss my project needs.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThank you!")
                 }
                 className="group inline-flex items-center justify-center px-8 py-4 bg-eservice-blue text-white font-semibold rounded-lg hover:bg-eservice-blue/90 transition-all duration-200 transform hover:scale-105"
               >

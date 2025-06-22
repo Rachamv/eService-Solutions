@@ -25,37 +25,52 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Create WhatsApp message with form data
-    const whatsappMessage = `
-📧 NEW CONTACT FORM SUBMISSION
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.service || !formData.message) {
+      alert('Please fill in all required fields');
+      return;
+    }
 
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || 'Not specified'}
-Service Interest: ${formData.service || 'Not specified'}
+    // Create well-formatted WhatsApp message with form data
+    const whatsappMessage = `🔥 *NEW CONTACT FORM SUBMISSION* 🔥
 
-Message:
+👤 *Name:* ${formData.name}
+📧 *Email:* ${formData.email}
+🏢 *Company:* ${formData.company || 'Not specified'}
+🎯 *Service Interest:* ${formData.service}
+
+💬 *Message:*
 ${formData.message}
 
-Best regards,
-${formData.name}
-    `.trim();
+---
+📅 *Submitted:* ${new Date().toLocaleString()}
+🌐 *Source:* eService Solutions Website
 
+Looking forward to connecting! 🚀`;
+
+    // Encode the message for WhatsApp URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+
+    // Create the complete WhatsApp URL
+    const completeWhatsAppUrl = `${whatsappUrl}&text=${encodedMessage}`;
+
+    // Open WhatsApp with the pre-filled message
+    window.open(completeWhatsAppUrl, '_blank');
 
     // Show success message
     setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setTimeout(() => setIsSubmitted(false), 5000); // Extended to 5 seconds
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      message: ''
-    });
+    // Reset form after a slight delay to ensure user sees the success message
+    setTimeout(() => {
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -313,17 +328,17 @@ ${formData.name}
                 Global Presence
               </h4>
               <div className="space-y-3 text-sm">
-                <div className="p-3 bg-light-gray rounded-lg">
-                  <p className="font-medium text-eservice-blue">Nigeria (Primary Operations)</p>
-                  <p className="text-professional-gray">Ibadan, Oyo State • All services available</p>
+                <div className="p-3 bg-white rounded-lg">
+                  <p className="font-medium text-eservice-blue">Africa</p>
+                  <p className="text-professional-gray">Rooted in Africa, connected globally — all services delivered remotely.</p>
                 </div>
-                <div className="p-3 bg-light-gray rounded-lg">
-                  <p className="font-medium text-knowledge-teal">United Kingdom</p>
-                  <p className="text-professional-gray">Remote collaboration • European timezone projects</p>
+                <div className="p-3 bg-white rounded-lg">
+                  <p className="font-medium text-knowledge-teal">Europe</p>
+                  <p className="text-professional-gray">Remote-first support for clients across European time zones.</p>
                 </div>
-                <div className="p-3 bg-light-gray rounded-lg">
-                  <p className="font-medium text-eservice-blue">United States</p>
-                  <p className="text-professional-gray">Remote collaboration • Advanced technical integration</p>
+                <div className="p-3 bg-white rounded-lg">
+                  <p className="font-medium text-eservice-blue">Wherever You Are</p>
+                  <p className="text-professional-gray">Our fully remote team works across borders and time zones to serve you.</p>
                 </div>
               </div>
             </div>

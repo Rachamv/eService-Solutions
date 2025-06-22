@@ -1,5 +1,5 @@
+import { Mail, MapPin, Phone } from 'lucide-react';
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
 
 interface FooterProps {
     onNavigate: (section: string) => void;
@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         <div className="space-y-3">
                             <div className="flex items-center space-x-3">
                                 <Mail className="w-5 h-5 text-knowledge-teal" />
-                                <span className="text-gray-300">hello@eservicesolutions.com</span>
+                                <span className="text-gray-300">help.eservicesolution@gmail.com</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Phone className="w-5 h-5 text-knowledge-teal" />

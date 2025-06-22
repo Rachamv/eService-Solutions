@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, MessageCircle, CheckCircle, Clock, Users, Award, Star, Phone, Mail, Calendar, BookOpen, Code, Palette, TrendingUp, Globe, Smartphone } from 'lucide-react';
+import { ArrowLeft, MessageCircle, CheckCircle, Clock, Users, Star, Phone, Mail, Calendar, BookOpen, Code, Palette, TrendingUp, Globe, Smartphone } from 'lucide-react';
 
 interface TrainingApplicationProps {
   onNavigate: (section: string) => void;
@@ -30,7 +30,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦150,000',
       scholarshipPrice: '₦75,000',
       icon: Code,
-      color: 'eservice-blue',
+      color: 'blue-600',
       description: 'Master modern web development with HTML, CSS, JavaScript, React, and backend fundamentals.',
       curriculum: [
         'HTML5 & CSS3 Fundamentals',
@@ -59,7 +59,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦80,000',
       scholarshipPrice: '₦40,000',
       icon: TrendingUp,
-      color: 'knowledge-teal',
+      color: 'teal-600',
       description: 'Learn to grow businesses online with proven digital marketing strategies and tools.',
       curriculum: [
         'Social Media Strategy & Management',
@@ -88,7 +88,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦120,000',
       scholarshipPrice: '₦60,000',
       icon: Palette,
-      color: 'eservice-blue',
+      color: 'purple-600',
       description: 'Design beautiful, user-friendly digital experiences using industry-standard tools.',
       curriculum: [
         'Design Thinking & User Research',
@@ -117,7 +117,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦25,000',
       scholarshipPrice: '₦15,000',
       icon: Smartphone,
-      color: 'knowledge-teal',
+      color: 'green-600',
       description: 'Transform your business with professional WhatsApp marketing and customer management.',
       curriculum: [
         'WhatsApp Business Setup & Optimization',
@@ -146,7 +146,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦90,000',
       scholarshipPrice: '₦45,000',
       icon: TrendingUp,
-      color: 'eservice-blue',
+      color: 'indigo-600',
       description: 'Turn data into insights with advanced Excel techniques and Power BI visualization.',
       curriculum: [
         'Advanced Excel Functions & Formulas',
@@ -175,7 +175,7 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       price: '₦40,000',
       scholarshipPrice: '₦25,000',
       icon: Globe,
-      color: 'knowledge-teal',
+      color: 'orange-600',
       description: 'Build a successful freelancing career or online business with proven strategies.',
       curriculum: [
         'Freelancing Platforms & Profile Optimization',
@@ -247,14 +247,14 @@ I'm ready to start my digital skills journey with eService Solutions!
   };
 
   return (
-    <div className="min-h-screen bg-light-gray">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <button
               onClick={() => onNavigate('training')}
-              className="flex items-center text-eservice-blue hover:text-eservice-blue/80 transition-colors duration-200"
+              className="flex items-center text-blue-600 hover:text-blue-500 transition-colors duration-200"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Training Overview
@@ -274,10 +274,10 @@ I'm ready to start my digital skills journey with eService Solutions!
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-eservice-blue mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-blue-600 mb-6">
             Transform Your Career with Digital Skills
           </h1>
-          <p className="text-xl text-professional-gray max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Join thousands of successful graduates who have built sustainable careers through our comprehensive, hands-on training programs.
           </p>
 
@@ -291,7 +291,7 @@ I'm ready to start my digital skills journey with eService Solutions!
             </button>
             <a
               href="mailto:help.eservicesolution@gmail.com"
-              className="inline-flex items-center px-6 py-3 border-2 border-eservice-blue text-eservice-blue font-semibold rounded-lg hover:bg-eservice-blue hover:text-white transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
             >
               <Mail className="w-5 h-5 mr-2" />
               Email Us
@@ -301,7 +301,7 @@ I'm ready to start my digital skills journey with eService Solutions!
 
         {/* Training Programs */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-eservice-blue text-center mb-12">Available Training Programs</h2>
+          <h2 className="text-3xl font-bold text-blue-600 text-center mb-12">Available Training Programs</h2>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {trainingPrograms.map((program) => {
@@ -322,35 +322,35 @@ I'm ready to start my digital skills journey with eService Solutions!
 
                   <div className="p-6">
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="flex items-center text-sm text-professional-gray">
-                        <Clock className="w-4 h-4 mr-2 text-knowledge-teal" />
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Clock className="w-4 h-4 mr-2 text-teal-600" />
                         {program.duration}
                       </div>
-                      <div className="flex items-center text-sm text-professional-gray">
-                        <Users className="w-4 h-4 mr-2 text-knowledge-teal" />
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Users className="w-4 h-4 mr-2 text-teal-600" />
                         {program.spots} spots
                       </div>
-                      <div className="flex items-center text-sm text-professional-gray">
-                        <Calendar className="w-4 h-4 mr-2 text-knowledge-teal" />
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Calendar className="w-4 h-4 mr-2 text-teal-600" />
                         Starts {program.nextStart}
                       </div>
-                      <div className="flex items-center text-sm text-professional-gray">
-                        <BookOpen className="w-4 h-4 mr-2 text-knowledge-teal" />
+                      <div className="flex items-center text-sm text-gray-600">
+                        <BookOpen className="w-4 h-4 mr-2 text-teal-600" />
                         {program.level}
                       </div>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="font-semibold text-professional-gray mb-3">What You'll Learn:</h4>
+                      <h4 className="font-semibold text-gray-700 mb-3">What You'll Learn:</h4>
                       <ul className="space-y-2">
                         {program.curriculum.slice(0, 4).map((item, index) => (
-                          <li key={index} className="flex items-start text-sm text-professional-gray">
-                            <CheckCircle className="w-4 h-4 mr-2 text-success-green mt-0.5 flex-shrink-0" />
+                          <li key={index} className="flex items-start text-sm text-gray-600">
+                            <CheckCircle className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
                             {item}
                           </li>
                         ))}
                         {program.curriculum.length > 4 && (
-                          <li className="text-sm text-knowledge-teal font-medium">
+                          <li className="text-sm text-teal-600 font-medium">
                             +{program.curriculum.length - 4} more topics
                           </li>
                         )}
@@ -358,10 +358,10 @@ I'm ready to start my digital skills journey with eService Solutions!
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="font-semibold text-professional-gray mb-3">Program Outcomes:</h4>
+                      <h4 className="font-semibold text-gray-700 mb-3">Program Outcomes:</h4>
                       <ul className="space-y-2">
                         {program.outcomes.map((outcome, index) => (
-                          <li key={index} className="flex items-start text-sm text-professional-gray">
+                          <li key={index} className="flex items-start text-sm text-gray-600">
                             <Star className="w-4 h-4 mr-2 text-yellow-500 mt-0.5 flex-shrink-0" />
                             {outcome}
                           </li>
@@ -398,17 +398,17 @@ I'm ready to start my digital skills journey with eService Solutions!
         {/* Application Form */}
         <div id="application-form" className="bg-white rounded-2xl shadow-lg p-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-eservice-blue mb-4">Apply for Training</h2>
-            <p className="text-professional-gray">
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Apply for Training</h2>
+            <p className="text-gray-600">
               Complete this form to apply for any of our training programs. We'll contact you within 24 hours to discuss your application.
             </p>
           </div>
 
           {isSubmitted ? (
             <div className="text-center py-12">
-              <CheckCircle className="w-16 h-16 text-success-green mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-success-green mb-4">Application Sent!</h3>
-              <p className="text-professional-gray mb-6">
+              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-green-500 mb-4">Application Sent!</h3>
+              <p className="text-gray-600 mb-6">
                 Your application has been sent via WhatsApp. Our team will review it and get back to you within 24 hours.
               </p>
               <button
@@ -420,10 +420,10 @@ I'm ready to start my digital skills journey with eService Solutions!
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -433,13 +433,13 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -449,13 +449,13 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -465,13 +465,13 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="+234 xxx xxx xxxx"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="location" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
                     Location *
                   </label>
                   <input
@@ -481,13 +481,13 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="City, State, Country"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="program" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="program" className="block text-sm font-medium text-gray-700 mb-2">
                     Preferred Program *
                   </label>
                   <select
@@ -496,7 +496,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.program}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   >
                     <option value="">Select a program</option>
                     {trainingPrograms.map((program) => (
@@ -508,7 +508,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                 </div>
 
                 <div>
-                  <label htmlFor="experience" className="block text-sm font-medium text-professional-gray mb-2">
+                  <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">
                     Experience Level *
                   </label>
                   <select
@@ -517,7 +517,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                     required
                     value={formData.experience}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   >
                     <option value="">Select your level</option>
                     <option value="complete-beginner">Complete Beginner</option>
@@ -529,7 +529,7 @@ I'm ready to start my digital skills journey with eService Solutions!
               </div>
 
               <div>
-                <label htmlFor="goals" className="block text-sm font-medium text-professional-gray mb-2">
+                <label htmlFor="goals" className="block text-sm font-medium text-gray-700 mb-2">
                   Career Goals & Motivation *
                 </label>
                 <textarea
@@ -539,13 +539,13 @@ I'm ready to start my digital skills journey with eService Solutions!
                   rows={4}
                   value={formData.goals}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   placeholder="Tell us about your career goals and why you want to join this program..."
                 ></textarea>
               </div>
 
               <div>
-                <label htmlFor="availability" className="block text-sm font-medium text-professional-gray mb-2">
+                <label htmlFor="availability" className="block text-sm font-medium text-gray-700 mb-2">
                   Availability *
                 </label>
                 <select
@@ -554,7 +554,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                   required
                   value={formData.availability}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-knowledge-teal focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 >
                   <option value="">Select your availability</option>
                   <option value="full-time">Full-time (40+ hours/week)</option>
@@ -571,48 +571,49 @@ I'm ready to start my digital skills journey with eService Solutions!
                   name="scholarship"
                   checked={formData.scholarship}
                   onChange={handleChange}
-                  className="w-4 h-4 text-knowledge-teal border-gray-300 rounded focus:ring-knowledge-teal"
+                  className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
                 />
-                <label htmlFor="scholarship" className="ml-2 text-sm text-professional-gray">
+                <label htmlFor="scholarship" className="ml-2 text-sm text-gray-600">
                   I'm interested in scholarship opportunities (50% discount available for qualified candidates)
                 </label>
               </div>
 
-              <div className="bg-knowledge-teal/5 rounded-xl p-6">
-                <h4 className="font-semibold text-knowledge-teal mb-3">What Happens Next?</h4>
-                <ul className="space-y-2 text-sm text-professional-gray">
+              <div className="bg-teal-50 rounded-xl p-6">
+                <h4 className="font-semibold text-teal-700 mb-3">What Happens Next?</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start">
-                    <CheckCircle className="w-4 h-4 mr-2 text-knowledge-teal mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
                     Your application will be sent directly to our WhatsApp for immediate review
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-4 h-4 mr-2 text-knowledge-teal mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
                     We'll contact you within 24 hours to discuss your application
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-4 h-4 mr-2 text-knowledge-teal mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
                     Schedule a brief interview to ensure program fit
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-4 h-4 mr-2 text-knowledge-teal mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
                     Receive enrollment details and payment options
                   </li>
                 </ul>
               </div>
 
               <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center px-8 py-4 bg-eservice-blue text-white font-semibold rounded-lg hover:bg-eservice-blue/90 transition-all duration-200 transform hover:scale-105"
+                type="button"
+                onClick={handleSubmit}
+                className="w-full inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Submit Application via WhatsApp
               </button>
-            </form>
+            </div>
           )}
         </div>
 
         {/* Contact Options */}
-        <div className="mt-16 bg-gradient-to-r from-eservice-blue to-knowledge-teal rounded-2xl p-8 text-white text-center">
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Need Help with Your Application?</h3>
           <p className="text-lg mb-8 opacity-90">
             Our team is here to help you choose the right program and guide you through the application process.
@@ -628,14 +629,14 @@ I'm ready to start my digital skills journey with eService Solutions!
             </button>
             <a
               href="mailto:help.eservicesolution@gmail.com"
-              className="inline-flex items-center px-6 py-3 bg-white text-eservice-blue font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-200"
             >
               <Mail className="w-5 h-5 mr-2" />
               Email Us
             </a>
             <a
               href="tel:+2348021295589"
-              className="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-eservice-blue transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-200"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Us
