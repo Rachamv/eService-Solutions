@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowLeft, MessageCircle, CheckCircle, Clock, Users, Star, Phone, Mail, Calendar, BookOpen, Code, Palette, TrendingUp, Globe, Smartphone } from 'lucide-react';
+import { ArrowLeft, MessageCircle, CheckCircle, Phone, Mail } from 'lucide-react';
 
 interface TrainingApplicationProps {
   onNavigate: (section: string) => void;
 }
 
 const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate }) => {
-  const [selectedProgram, setSelectedProgram] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,175 +24,43 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
       id: 'web-development',
       title: 'Web Development Bootcamp',
       duration: '12 weeks',
-      format: 'Hybrid (Online + In-person)',
-      level: 'Beginner to Intermediate',
       price: '₦150,000',
       scholarshipPrice: '₦75,000',
-      icon: Code,
-      color: 'blue-600',
-      description: 'Master modern web development with HTML, CSS, JavaScript, React, and backend fundamentals.',
-      curriculum: [
-        'HTML5 & CSS3 Fundamentals',
-        'JavaScript & ES6+',
-        'React.js & Component Architecture',
-        'Node.js & Express Basics',
-        'Database Integration',
-        'Deployment & Version Control',
-        'Portfolio Project Development'
-      ],
-      outcomes: [
-        'Build 5+ professional websites',
-        'Create a complete web application',
-        'Job placement assistance',
-        'Industry-recognized certificate'
-      ],
-      nextStart: '2025-02-15',
-      spots: 25
     },
     {
       id: 'digital-marketing',
       title: 'Digital Marketing & Social Media',
       duration: '8 weeks',
-      format: 'Online + Practical Workshops',
-      level: 'All Levels',
       price: '₦80,000',
       scholarshipPrice: '₦40,000',
-      icon: TrendingUp,
-      color: 'teal-600',
-      description: 'Learn to grow businesses online with proven digital marketing strategies and tools.',
-      curriculum: [
-        'Social Media Strategy & Management',
-        'Content Creation & Copywriting',
-        'Facebook & Instagram Advertising',
-        'Google Ads & SEO Basics',
-        'Email Marketing & Automation',
-        'Analytics & Performance Tracking',
-        'Brand Building & Community Management'
-      ],
-      outcomes: [
-        'Manage social media professionally',
-        'Run profitable ad campaigns',
-        'Build personal brand online',
-        'Freelance or agency opportunities'
-      ],
-      nextStart: '2025-02-01',
-      spots: 30
     },
     {
       id: 'ui-ux-design',
       title: 'UI/UX Design Fundamentals',
       duration: '10 weeks',
-      format: 'Online with Design Labs',
-      level: 'Beginner to Intermediate',
       price: '₦120,000',
       scholarshipPrice: '₦60,000',
-      icon: Palette,
-      color: 'purple-600',
-      description: 'Design beautiful, user-friendly digital experiences using industry-standard tools.',
-      curriculum: [
-        'Design Thinking & User Research',
-        'Wireframing & Prototyping',
-        'Figma & Adobe Creative Suite',
-        'Visual Design Principles',
-        'Mobile & Web Design',
-        'Usability Testing',
-        'Portfolio Development'
-      ],
-      outcomes: [
-        'Create professional design portfolio',
-        'Master Figma and design tools',
-        'Understand user experience principles',
-        'Ready for design roles'
-      ],
-      nextStart: '2025-02-22',
-      spots: 20
     },
     {
       id: 'whatsapp-business',
       title: 'WhatsApp Business Mastery',
       duration: '3 weeks',
-      format: 'Online + Live Practice',
-      level: 'All Levels',
       price: '₦25,000',
       scholarshipPrice: '₦15,000',
-      icon: Smartphone,
-      color: 'green-600',
-      description: 'Transform your business with professional WhatsApp marketing and customer management.',
-      curriculum: [
-        'WhatsApp Business Setup & Optimization',
-        'Catalog & Product Management',
-        'Customer Communication Best Practices',
-        'Automated Messages & Quick Replies',
-        'WhatsApp Marketing Strategies',
-        'Sales Funnel Creation',
-        'Performance Tracking & Analytics'
-      ],
-      outcomes: [
-        'Professional WhatsApp presence',
-        'Increased customer engagement',
-        'Streamlined sales process',
-        'Higher conversion rates'
-      ],
-      nextStart: '2025-01-20',
-      spots: 50
     },
     {
       id: 'data-analysis',
       title: 'Data Analysis with Excel & Power BI',
       duration: '6 weeks',
-      format: 'Online + Project Work',
-      level: 'Beginner to Intermediate',
       price: '₦90,000',
       scholarshipPrice: '₦45,000',
-      icon: TrendingUp,
-      color: 'indigo-600',
-      description: 'Turn data into insights with advanced Excel techniques and Power BI visualization.',
-      curriculum: [
-        'Advanced Excel Functions & Formulas',
-        'Data Cleaning & Preparation',
-        'Pivot Tables & Data Analysis',
-        'Power BI Fundamentals',
-        'Dashboard Creation',
-        'Data Visualization Best Practices',
-        'Business Intelligence Reporting'
-      ],
-      outcomes: [
-        'Master advanced Excel skills',
-        'Create professional dashboards',
-        'Analyze business data effectively',
-        'Qualify for analyst roles'
-      ],
-      nextStart: '2025-02-08',
-      spots: 25
     },
     {
       id: 'freelancing-business',
       title: 'Freelancing & Online Business',
       duration: '4 weeks',
-      format: 'Online Masterclass Series',
-      level: 'All Levels',
       price: '₦40,000',
       scholarshipPrice: '₦25,000',
-      icon: Globe,
-      color: 'orange-600',
-      description: 'Build a successful freelancing career or online business with proven strategies.',
-      curriculum: [
-        'Freelancing Platforms & Profile Optimization',
-        'Service Packaging & Pricing',
-        'Client Acquisition & Retention',
-        'Project Management & Delivery',
-        'Online Business Models',
-        'Payment Systems & Contracts',
-        'Scaling & Team Building'
-      ],
-      outcomes: [
-        'Launch freelancing career',
-        'Secure first paying clients',
-        'Build sustainable income',
-        'Develop business mindset'
-      ],
-      nextStart: '2025-01-27',
-      spots: 40
     }
   ];
 
@@ -271,7 +138,7 @@ I'm ready to start my digital skills journey with eService Solutions!
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-blue-600 mb-6">
@@ -299,99 +166,50 @@ I'm ready to start my digital skills journey with eService Solutions!
           </div>
         </div>
 
-        {/* Training Programs */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-blue-600 text-center mb-12">Available Training Programs</h2>
+        {/* Quick Program Overview */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-blue-600 mb-4">Our Training Programs</h2>
+            <p className="text-gray-600">
+              We offer comprehensive training programs designed to equip you with in-demand digital skills. Choose from our range of programs below.
+            </p>
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {trainingPrograms.map((program) => {
-              const IconComponent = program.icon;
-              return (
-                <div key={program.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className={`bg-gradient-to-r from-${program.color} to-${program.color}/80 p-6 text-white`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <IconComponent className="w-8 h-8" />
-                      <div className="text-right">
-                        <div className="text-2xl font-bold">{program.price}</div>
-                        <div className="text-sm opacity-90">Scholarship: {program.scholarshipPrice}</div>
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
-                    <p className="opacity-90">{program.description}</p>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {trainingPrograms.map((program) => (
+              <div key={program.id} className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl p-6 border border-blue-100">
+                <h3 className="font-bold text-gray-800 mb-4 text-center">{program.title}</h3>
 
-                  <div className="p-6">
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="w-4 h-4 mr-2 text-teal-600" />
-                        {program.duration}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Users className="w-4 h-4 mr-2 text-teal-600" />
-                        {program.spots} spots
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2 text-teal-600" />
-                        Starts {program.nextStart}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <BookOpen className="w-4 h-4 mr-2 text-teal-600" />
-                        {program.level}
-                      </div>
-                    </div>
-
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-700 mb-3">What You'll Learn:</h4>
-                      <ul className="space-y-2">
-                        {program.curriculum.slice(0, 4).map((item, index) => (
-                          <li key={index} className="flex items-start text-sm text-gray-600">
-                            <CheckCircle className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                        {program.curriculum.length > 4 && (
-                          <li className="text-sm text-teal-600 font-medium">
-                            +{program.curriculum.length - 4} more topics
-                          </li>
-                        )}
-                      </ul>
-                    </div>
-
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-700 mb-3">Program Outcomes:</h4>
-                      <ul className="space-y-2">
-                        {program.outcomes.map((outcome, index) => (
-                          <li key={index} className="flex items-start text-sm text-gray-600">
-                            <Star className="w-4 h-4 mr-2 text-yellow-500 mt-0.5 flex-shrink-0" />
-                            {outcome}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <button
-                        onClick={() => handleWhatsAppContact(program.title)}
-                        className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200"
-                      >
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Apply via WhatsApp
-                      </button>
-                      <button
-                        onClick={() => {
-                          setSelectedProgram(program.id);
-                          setFormData({ ...formData, program: program.id });
-                          document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className={`flex-1 px-4 py-3 border-2 border-${program.color} text-${program.color} font-semibold rounded-lg hover:bg-${program.color} hover:text-white transition-colors duration-200`}
-                      >
-                        Apply Online
-                      </button>
-                    </div>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => handleWhatsAppContact(program.title)}
+                    className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    Apply via WhatsApp
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFormData({ ...formData, program: program.id });
+                      document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="flex-1 px-4 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                  >
+                    Apply Online
+                  </button>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <button
+              onClick={() => handleWhatsAppContact()}
+              className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Get Detailed Program Information
+            </button>
           </div>
         </div>
 
@@ -400,7 +218,7 @@ I'm ready to start my digital skills journey with eService Solutions!
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-blue-600 mb-4">Apply for Training</h2>
             <p className="text-gray-600">
-              Complete this form to apply for any of our training programs. We'll contact you within 24 hours to discuss your application.
+              Complete this form to apply for any of our training programs. We'll contact you within 24 hours to discuss your application and provide detailed program information.
             </p>
           </div>
 
@@ -409,7 +227,7 @@ I'm ready to start my digital skills journey with eService Solutions!
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-green-500 mb-4">Application Sent!</h3>
               <p className="text-gray-600 mb-6">
-                Your application has been sent via WhatsApp. Our team will review it and get back to you within 24 hours.
+                Your application has been sent via WhatsApp. Our team will review it and get back to you within 24 hours with detailed program information.
               </p>
               <button
                 onClick={() => handleWhatsAppContact()}
@@ -587,7 +405,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
-                    We'll contact you within 24 hours to discuss your application
+                    We'll contact you within 24 hours with detailed program information
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-4 h-4 mr-2 text-teal-600 mt-0.5 flex-shrink-0" />
@@ -608,7 +426,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Submit Application via WhatsApp
               </button>
-            </div>
+            </form>
           )}
         </div>
 
