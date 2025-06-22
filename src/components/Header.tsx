@@ -10,14 +10,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
-
-  const handleWhatsAppContact = () => {
-    const message = "Hi! I'd like to learn more about eService Solutions and your services.";
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -33,7 +25,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
     { id: 'training', label: 'Training' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
-    { id: 'coming-soon', label: 'Coming Soon', highlight: true },
+    { id: 'coming-soon', label: 'Portfolio', comingSoon: true },
+    { id: 'coming-soon', label: 'Blog', comingSoon: true },
+    { id: 'coming-soon', label: 'Resources', comingSoon: true },
   ];
 
   return (
@@ -52,45 +46,22 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navItems.map((item, index) => (
               <button
-                key={item.id}
-                onClick={() => onNavigate(item.id)}
+                key={`${item.id}-${index}`}
+                onClick={() => onNavigate(item.comingSoon ? 'coming-soon' : item.id)}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-knowledge-teal relative ${
                   activeSection === item.id ? 'text-knowledge-teal' : 'text-professional-gray'
-                } ${item.highlight ? 'bg-gradient-to-r from-eservice-blue to-knowledge-teal text-white px-3 py-1 rounded-full hover:shadow-lg' : ''}`}
+                } ${item.comingSoon ? 'opacity-75' : ''}`}
               >
                 {item.label}
-                {item.highlight && (
+                {item.comingSoon && (
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-alert-orange rounded-full animate-pulse"></span>
                 )}
               </button>
             ))}
           </nav>
-
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <button 
-              onClick={handleWhatsAppContact}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-200"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              WhatsApp
-            </button>
-            <button 
-              onClick={() => onNavigate('contact')}
-              className="px-4 py-2 text-sm font-medium text-eservice-blue border border-eservice-blue rounded-lg hover:bg-eservice-blue hover:text-white transition-colors duration-200"
-            >
-              Get Consultation
-            </button>
-            <button 
-              onClick={() => onNavigate('training-application')}
-              className="px-4 py-2 text-sm font-medium text-white bg-knowledge-teal rounded-lg hover:bg-knowledge-teal/90 transition-colors duration-200"
-            >
-              Apply for Training
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -105,51 +76,21 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t">
             <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <button
-                  key={item.id}
+                  key={`${item.id}-${index}`}
                   onClick={() => {
-                    onNavigate(item.id);
+                    onNavigate(item.comingSoon ? 'coming-soon' : item.id);
                     setIsMenuOpen(false);
                   }}
                   className={`block w-full text-left py-2 text-base font-medium transition-colors duration-200 ${
                     activeSection === item.id ? 'text-knowledge-teal' : 'text-professional-gray hover:text-knowledge-teal'
-                  } ${item.highlight ? 'bg-gradient-to-r from-eservice-blue to-knowledge-teal text-white px-3 py-2 rounded-lg' : ''}`}
+                  } ${item.comingSoon ? 'opacity-75' : ''}`}
                 >
                   {item.label}
-                  {item.highlight && <span className="ml-2 text-xs">🚀</span>}
+                  {item.comingSoon && <span className="ml-2 text-xs text-alert-orange">Coming Soon</span>}
                 </button>
               ))}
-              <div className="pt-4 space-y-3">
-                <button 
-                  onClick={() => {
-                    handleWhatsAppContact();
-                    setIsMenuOpen(false);
-                  }}
-                  className="flex items-center w-full px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-200"
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp Chat
-                </button>
-                <button 
-                  onClick={() => {
-                    onNavigate('contact');
-                    setIsMenuOpen(false);
-                  }}
-                  className="block w-full px-4 py-2 text-sm font-medium text-eservice-blue border border-eservice-blue rounded-lg hover:bg-eservice-blue hover:text-white transition-colors duration-200"
-                >
-                  Get Consultation
-                </button>
-                <button 
-                  onClick={() => {
-                    onNavigate('training-application');
-                    setIsMenuOpen(false);
-                  }}
-                  className="block w-full px-4 py-2 text-sm font-medium text-white bg-knowledge-teal rounded-lg hover:bg-knowledge-teal/90 transition-colors duration-200"
-                >
-                  Apply for Training
-                </button>
-              </div>
             </div>
           </div>
         )}

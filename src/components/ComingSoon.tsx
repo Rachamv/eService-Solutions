@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Mail, Bell, ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
+import { Clock, Mail, Bell, ArrowRight, CheckCircle, Sparkles, ArrowLeft } from 'lucide-react';
 
 interface ComingSoonProps {
   title?: string;
@@ -74,6 +74,28 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-eservice-blue/5 via-white to-knowledge-teal/5 flex items-center justify-center relative overflow-hidden">
+      {/* Header */}
+      <div className="absolute top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-sm z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => onNavigate?.('home')}
+              className="flex items-center text-eservice-blue hover:text-eservice-blue/80 transition-colors duration-200"
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Back to Home
+            </button>
+            
+            <div className="flex items-center space-x-3">
+              <img src="/logo.jpg" alt="eService Solutions" className="h-8 w-8 rounded-lg" />
+              <div className="hidden sm:block">
+                <h1 className="text-lg font-bold text-eservice-blue">eService Solutions</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-knowledge-teal/10 rounded-full blur-3xl animate-float"></div>
@@ -81,17 +103,8 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-knowledge-teal/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32">
         <div className="text-center mb-16">
-          {/* Logo */}
-          <div className="flex items-center justify-center space-x-3 mb-8">
-            <img src="/logo.jpg" alt="eService Solutions" className="h-16 w-16 rounded-xl shadow-lg" />
-            <div>
-              <h1 className="text-2xl font-bold text-eservice-blue">eService Solutions</h1>
-              <p className="text-sm text-professional-gray">Excellence Delivered. Knowledge Empowered.</p>
-            </div>
-          </div>
-
           {/* Main Content */}
           <div className="animate-slide-up">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eservice-blue leading-tight mb-6">
