@@ -116,7 +116,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Service Image */}
               <div className="relative h-64">
-                <img 
+                <img
                   src={services[activeService].image}
                   alt={services[activeService].title}
                   className="w-full h-full object-cover"
@@ -167,14 +167,14 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                  <button
                     onClick={() => onNavigate('contact')}
                     className={`group inline-flex items-center justify-center px-6 py-3 bg-${services[activeService].color} text-white font-semibold rounded-lg hover:bg-${services[activeService].color}/90 transition-all duration-200`}
                   >
                     Get Free Consultation
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
-                  <button className="px-6 py-3 border border-professional-gray text-professional-gray font-semibold rounded-lg hover:bg-professional-gray hover:text-white transition-all duration-200">
+                  <button onClick={() => onNavigate('coming-soon')} className="px-6 py-3 border border-professional-gray text-professional-gray font-semibold rounded-lg hover:bg-professional-gray hover:text-white transition-all duration-200">
                     View Portfolio Examples
                   </button>
                 </div>

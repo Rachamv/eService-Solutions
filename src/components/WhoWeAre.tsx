@@ -7,10 +7,10 @@ const WhoWeAre: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-eservice-blue mb-6">
-            Execution + Education. Our Model is Different.
+            Execution + Education = Lasting Impact
           </h2>
           <p className="text-lg text-professional-gray max-w-4xl mx-auto leading-relaxed">
-            We're a global team of designers, developers, marketers, and strategists working together to help you launch faster, grow smarter, and build lasting impact. From Africa's emerging markets to clients in the UK and US—we bring world-class digital solutions and transformative skill-building under one roof.
+            Most agencies deliver and disappear. We build, train, and empower. Our global team of strategists, developers, and educators doesn't just create digital solutions—we transfer the knowledge so you can grow with confidence.
           </p>
           <div className="mt-8 p-6 bg-knowledge-teal/5 rounded-2xl inline-block">
             <p className="text-knowledge-teal font-medium italic">
@@ -22,8 +22,8 @@ const WhoWeAre: React.FC = () => {
         {/* Team Image Section */}
         <div className="mb-16">
           <div className="relative">
-            <img 
-              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+            <img
+              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Diverse team collaborating on digital solutions"
               className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
             />
