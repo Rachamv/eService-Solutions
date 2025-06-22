@@ -21,199 +21,199 @@ const TrainingApplication: React.FC<TrainingApplicationProps> = ({ onNavigate })
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const trainingPrograms = [
-    {
-      id: 'web-development',
-      title: 'Web Development Bootcamp',
-      duration: '12 weeks',
-      format: 'Hybrid (Online + In-person)',
-      level: 'Beginner to Intermediate',
-      price: '₦150,000',
-      scholarshipPrice: '₦75,000',
-      icon: Code,
-      color: 'eservice-blue',
-      description: 'Master modern web development with HTML, CSS, JavaScript, React, and backend fundamentals.',
-      curriculum: [
-        'HTML5 & CSS3 Fundamentals',
-        'JavaScript & ES6+',
-        'React.js & Component Architecture',
-        'Node.js & Express Basics',
-        'Database Integration',
-        'Deployment & Version Control',
-        'Portfolio Project Development'
-      ],
-      outcomes: [
-        'Build 5+ professional websites',
-        'Create a complete web application',
-        'Job placement assistance',
-        'Industry-recognized certificate'
-      ],
-      nextStart: '2025-02-15',
-      spots: 25
-    },
-    {
-      id: 'digital-marketing',
-      title: 'Digital Marketing & Social Media',
-      duration: '8 weeks',
-      format: 'Online + Practical Workshops',
-      level: 'All Levels',
-      price: '₦80,000',
-      scholarshipPrice: '₦40,000',
-      icon: TrendingUp,
-      color: 'knowledge-teal',
-      description: 'Learn to grow businesses online with proven digital marketing strategies and tools.',
-      curriculum: [
-        'Social Media Strategy & Management',
-        'Content Creation & Copywriting',
-        'Facebook & Instagram Advertising',
-        'Google Ads & SEO Basics',
-        'Email Marketing & Automation',
-        'Analytics & Performance Tracking',
-        'Brand Building & Community Management'
-      ],
-      outcomes: [
-        'Manage social media professionally',
-        'Run profitable ad campaigns',
-        'Build personal brand online',
-        'Freelance or agency opportunities'
-      ],
-      nextStart: '2025-02-01',
-      spots: 30
-    },
-    {
-      id: 'ui-ux-design',
-      title: 'UI/UX Design Fundamentals',
-      duration: '10 weeks',
-      format: 'Online with Design Labs',
-      level: 'Beginner to Intermediate',
-      price: '₦120,000',
-      scholarshipPrice: '₦60,000',
-      icon: Palette,
-      color: 'eservice-blue',
-      description: 'Design beautiful, user-friendly digital experiences using industry-standard tools.',
-      curriculum: [
-        'Design Thinking & User Research',
-        'Wireframing & Prototyping',
-        'Figma & Adobe Creative Suite',
-        'Visual Design Principles',
-        'Mobile & Web Design',
-        'Usability Testing',
-        'Portfolio Development'
-      ],
-      outcomes: [
-        'Create professional design portfolio',
-        'Master Figma and design tools',
-        'Understand user experience principles',
-        'Ready for design roles'
-      ],
-      nextStart: '2025-02-22',
-      spots: 20
-    },
-    {
-      id: 'whatsapp-business',
-      title: 'WhatsApp Business Mastery',
-      duration: '3 weeks',
-      format: 'Online + Live Practice',
-      level: 'All Levels',
-      price: '₦25,000',
-      scholarshipPrice: '₦15,000',
-      icon: Smartphone,
-      color: 'knowledge-teal',
-      description: 'Transform your business with professional WhatsApp marketing and customer management.',
-      curriculum: [
-        'WhatsApp Business Setup & Optimization',
-        'Catalog & Product Management',
-        'Customer Communication Best Practices',
-        'Automated Messages & Quick Replies',
-        'WhatsApp Marketing Strategies',
-        'Sales Funnel Creation',
-        'Performance Tracking & Analytics'
-      ],
-      outcomes: [
-        'Professional WhatsApp presence',
-        'Increased customer engagement',
-        'Streamlined sales process',
-        'Higher conversion rates'
-      ],
-      nextStart: '2025-01-20',
-      spots: 50
-    },
-    {
-      id: 'data-analysis',
-      title: 'Data Analysis with Excel & Power BI',
-      duration: '6 weeks',
-      format: 'Online + Project Work',
-      level: 'Beginner to Intermediate',
-      price: '₦90,000',
-      scholarshipPrice: '₦45,000',
-      icon: TrendingUp,
-      color: 'eservice-blue',
-      description: 'Turn data into insights with advanced Excel techniques and Power BI visualization.',
-      curriculum: [
-        'Advanced Excel Functions & Formulas',
-        'Data Cleaning & Preparation',
-        'Pivot Tables & Data Analysis',
-        'Power BI Fundamentals',
-        'Dashboard Creation',
-        'Data Visualization Best Practices',
-        'Business Intelligence Reporting'
-      ],
-      outcomes: [
-        'Master advanced Excel skills',
-        'Create professional dashboards',
-        'Analyze business data effectively',
-        'Qualify for analyst roles'
-      ],
-      nextStart: '2025-02-08',
-      spots: 25
-    },
-    {
-      id: 'freelancing-business',
-      title: 'Freelancing & Online Business',
-      duration: '4 weeks',
-      format: 'Online Masterclass Series',
-      level: 'All Levels',
-      price: '₦40,000',
-      scholarshipPrice: '₦25,000',
-      icon: Globe,
-      color: 'knowledge-teal',
-      description: 'Build a successful freelancing career or online business with proven strategies.',
-      curriculum: [
-        'Freelancing Platforms & Profile Optimization',
-        'Service Packaging & Pricing',
-        'Client Acquisition & Retention',
-        'Project Management & Delivery',
-        'Online Business Models',
-        'Payment Systems & Contracts',
-        'Scaling & Team Building'
-      ],
-      outcomes: [
-        'Launch freelancing career',
-        'Secure first paying clients',
-        'Build sustainable income',
-        'Develop business mindset'
-      ],
-      nextStart: '2025-01-27',
-      spots: 40
-    }
+    // {
+    //   id: 'web-development',
+    //   title: 'Web Development Bootcamp',
+    //   duration: '12 weeks',
+    //   format: 'Hybrid (Online + In-person)',
+    //   level: 'Beginner to Intermediate',
+    //   price: '₦150,000',
+    //   scholarshipPrice: '₦75,000',
+    //   icon: Code,
+    //   color: 'eservice-blue',
+    //   description: 'Master modern web development with HTML, CSS, JavaScript, React, and backend fundamentals.',
+    //   curriculum: [
+    //     'HTML5 & CSS3 Fundamentals',
+    //     'JavaScript & ES6+',
+    //     'React.js & Component Architecture',
+    //     'Node.js & Express Basics',
+    //     'Database Integration',
+    //     'Deployment & Version Control',
+    //     'Portfolio Project Development'
+    //   ],
+    //   outcomes: [
+    //     'Build 5+ professional websites',
+    //     'Create a complete web application',
+    //     'Job placement assistance',
+    //     'Industry-recognized certificate'
+    //   ],
+    //   nextStart: '2025-02-15',
+    //   spots: 25
+    // },
+    // {
+    //   id: 'digital-marketing',
+    //   title: 'Digital Marketing & Social Media',
+    //   duration: '8 weeks',
+    //   format: 'Online + Practical Workshops',
+    //   level: 'All Levels',
+    //   price: '₦80,000',
+    //   scholarshipPrice: '₦40,000',
+    //   icon: TrendingUp,
+    //   color: 'knowledge-teal',
+    //   description: 'Learn to grow businesses online with proven digital marketing strategies and tools.',
+    //   curriculum: [
+    //     'Social Media Strategy & Management',
+    //     'Content Creation & Copywriting',
+    //     'Facebook & Instagram Advertising',
+    //     'Google Ads & SEO Basics',
+    //     'Email Marketing & Automation',
+    //     'Analytics & Performance Tracking',
+    //     'Brand Building & Community Management'
+    //   ],
+    //   outcomes: [
+    //     'Manage social media professionally',
+    //     'Run profitable ad campaigns',
+    //     'Build personal brand online',
+    //     'Freelance or agency opportunities'
+    //   ],
+    //   nextStart: '2025-02-01',
+    //   spots: 30
+    // },
+    // {
+    //   id: 'ui-ux-design',
+    //   title: 'UI/UX Design Fundamentals',
+    //   duration: '10 weeks',
+    //   format: 'Online with Design Labs',
+    //   level: 'Beginner to Intermediate',
+    //   price: '₦120,000',
+    //   scholarshipPrice: '₦60,000',
+    //   icon: Palette,
+    //   color: 'eservice-blue',
+    //   description: 'Design beautiful, user-friendly digital experiences using industry-standard tools.',
+    //   curriculum: [
+    //     'Design Thinking & User Research',
+    //     'Wireframing & Prototyping',
+    //     'Figma & Adobe Creative Suite',
+    //     'Visual Design Principles',
+    //     'Mobile & Web Design',
+    //     'Usability Testing',
+    //     'Portfolio Development'
+    //   ],
+    //   outcomes: [
+    //     'Create professional design portfolio',
+    //     'Master Figma and design tools',
+    //     'Understand user experience principles',
+    //     'Ready for design roles'
+    //   ],
+    //   nextStart: '2025-02-22',
+    //   spots: 20
+    // },
+    // {
+    //   id: 'whatsapp-business',
+    //   title: 'WhatsApp Business Mastery',
+    //   duration: '3 weeks',
+    //   format: 'Online + Live Practice',
+    //   level: 'All Levels',
+    //   price: '₦25,000',
+    //   scholarshipPrice: '₦15,000',
+    //   icon: Smartphone,
+    //   color: 'knowledge-teal',
+    //   description: 'Transform your business with professional WhatsApp marketing and customer management.',
+    //   curriculum: [
+    //     'WhatsApp Business Setup & Optimization',
+    //     'Catalog & Product Management',
+    //     'Customer Communication Best Practices',
+    //     'Automated Messages & Quick Replies',
+    //     'WhatsApp Marketing Strategies',
+    //     'Sales Funnel Creation',
+    //     'Performance Tracking & Analytics'
+    //   ],
+    //   outcomes: [
+    //     'Professional WhatsApp presence',
+    //     'Increased customer engagement',
+    //     'Streamlined sales process',
+    //     'Higher conversion rates'
+    //   ],
+    //   nextStart: '2025-01-20',
+    //   spots: 50
+    // },
+    // {
+    //   id: 'data-analysis',
+    //   title: 'Data Analysis with Excel & Power BI',
+    //   duration: '6 weeks',
+    //   format: 'Online + Project Work',
+    //   level: 'Beginner to Intermediate',
+    //   price: '₦90,000',
+    //   scholarshipPrice: '₦45,000',
+    //   icon: TrendingUp,
+    //   color: 'eservice-blue',
+    //   description: 'Turn data into insights with advanced Excel techniques and Power BI visualization.',
+    //   curriculum: [
+    //     'Advanced Excel Functions & Formulas',
+    //     'Data Cleaning & Preparation',
+    //     'Pivot Tables & Data Analysis',
+    //     'Power BI Fundamentals',
+    //     'Dashboard Creation',
+    //     'Data Visualization Best Practices',
+    //     'Business Intelligence Reporting'
+    //   ],
+    //   outcomes: [
+    //     'Master advanced Excel skills',
+    //     'Create professional dashboards',
+    //     'Analyze business data effectively',
+    //     'Qualify for analyst roles'
+    //   ],
+    //   nextStart: '2025-02-08',
+    //   spots: 25
+    // },
+    // {
+    //   id: 'freelancing-business',
+    //   title: 'Freelancing & Online Business',
+    //   duration: '4 weeks',
+    //   format: 'Online Masterclass Series',
+    //   level: 'All Levels',
+    //   price: '₦40,000',
+    //   scholarshipPrice: '₦25,000',
+    //   icon: Globe,
+    //   color: 'knowledge-teal',
+    //   description: 'Build a successful freelancing career or online business with proven strategies.',
+    //   curriculum: [
+    //     'Freelancing Platforms & Profile Optimization',
+    //     'Service Packaging & Pricing',
+    //     'Client Acquisition & Retention',
+    //     'Project Management & Delivery',
+    //     'Online Business Models',
+    //     'Payment Systems & Contracts',
+    //     'Scaling & Team Building'
+    //   ],
+    //   outcomes: [
+    //     'Launch freelancing career',
+    //     'Secure first paying clients',
+    //     'Build sustainable income',
+    //     'Develop business mindset'
+    //   ],
+    //   nextStart: '2025-01-27',
+    //   spots: 40
+    // }
   ];
 
   const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
 
   const handleWhatsAppContact = (program?: string) => {
-    const message = program 
+    const message = program
       ? `Hi! I'm interested in the ${program} program. Can you provide more details about enrollment, schedule, and requirements?`
       : "Hi! I'd like to learn more about your training programs and application process.";
-    
+
     const encodedMessage = encodeURIComponent(message);
     window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const selectedProgramData = trainingPrograms.find(p => p.id === formData.program);
     const programTitle = selectedProgramData?.title || 'General Training Inquiry';
-    
+
     const whatsappMessage = `
 🎓 TRAINING APPLICATION
 
@@ -230,10 +230,10 @@ Scholarship Interest: ${formData.scholarship ? 'Yes' : 'No'}
 
 I'm ready to start my digital skills journey with eService Solutions!
     `.trim();
-    
+
     const encodedMessage = encodeURIComponent(whatsappMessage);
     window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
-    
+
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
   };
@@ -259,7 +259,7 @@ I'm ready to start my digital skills journey with eService Solutions!
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Training Overview
             </button>
-            
+
             <button
               onClick={() => handleWhatsAppContact()}
               className="flex items-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200"
@@ -280,7 +280,7 @@ I'm ready to start my digital skills journey with eService Solutions!
           <p className="text-xl text-professional-gray max-w-3xl mx-auto mb-8">
             Join thousands of successful graduates who have built sustainable careers through our comprehensive, hands-on training programs.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => handleWhatsAppContact()}
@@ -302,7 +302,7 @@ I'm ready to start my digital skills journey with eService Solutions!
         {/* Training Programs */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-eservice-blue text-center mb-12">Available Training Programs</h2>
-          
+
           <div className="grid lg:grid-cols-2 gap-8">
             {trainingPrograms.map((program) => {
               const IconComponent = program.icon;
@@ -319,7 +319,7 @@ I'm ready to start my digital skills journey with eService Solutions!
                     <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
                     <p className="opacity-90">{program.description}</p>
                   </div>
-                  
+
                   <div className="p-6">
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="flex items-center text-sm text-professional-gray">
@@ -617,7 +617,7 @@ I'm ready to start my digital skills journey with eService Solutions!
           <p className="text-lg mb-8 opacity-90">
             Our team is here to help you choose the right program and guide you through the application process.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => handleWhatsAppContact()}

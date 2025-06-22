@@ -9,10 +9,10 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
   const whatsappUrl = "https://wa.me/message/FTCFNEK3TNATJ1";
 
   const handleWhatsAppContact = (program?: string) => {
-    const message = program 
+    const message = program
       ? `Hi! I'm interested in the ${program} training program. Can you provide more details?`
       : "Hi! I'd like to learn more about your training programs.";
-    
+
     const encodedMessage = encodeURIComponent(message);
     window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
   };
@@ -72,15 +72,15 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
     },
     {
       quote: "eService's LMS setup transformed how we deliver training to our 200+ scholarship recipients. The impact tracking alone saved us 10 hours per week.",
-      author: "Dr. Sarah Johnson",
-      role: "Education Director, TechBridge Foundation",
+      author: "Eunice Adio",
+      role: "Education Director, TalentUpgrade Foundation",
       rating: 5,
       image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300'
     }
   ];
 
   const impactGoals = [
-    { timeline: '2024-2025', target: '500+ learners', focus: 'Youth bootcamps, client coaching, community workshops' },
+    { timeline: '2025-2026', target: '50+ learners', focus: 'Youth bootcamps, client coaching, community workshops' },
     { timeline: 'By 2030', target: '5,000+ learners', focus: 'Regional partnerships, certification programs' },
     { timeline: 'By 2035', target: '10,000+ learners', focus: 'Pan-African impact, international collaboration' }
   ];
@@ -100,8 +100,8 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
         {/* Training Hero Image */}
         <div className="mb-20">
           <div className="relative">
-            <img 
-              src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+            <img
+              src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Digital skills training and education"
               className="w-full h-[300px] object-cover rounded-2xl shadow-lg"
             />
@@ -109,7 +109,7 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center text-white">
                 <h3 className="text-3xl font-bold mb-2">Transforming Lives Through Digital Education</h3>
-                <p className="text-xl opacity-90">1,000+ individuals trained • 85% job placement rate</p>
+                {/* <p className="text-xl opacity-90">1,000+ individuals trained • 85% job placement rate</p> */}
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
             return (
               <div key={index} className="bg-light-gray rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
                 <div className="relative h-48">
-                  <img 
+                  <img
                     src={stream.image}
                     alt={stream.title}
                     className="w-full h-full object-cover"
@@ -132,7 +132,7 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
                     <IconComponent className="w-12 h-12 text-white" />
                   </div>
                 </div>
-                
+
                 <div className="p-8">
                   <div className="mb-4">
                     <h3 className={`text-xl font-bold text-${stream.color} mb-2`}>{stream.title}</h3>
@@ -175,7 +175,7 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
         {/* Success Stories */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-eservice-blue text-center mb-12">Success Stories</h3>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {successStories.map((story, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
@@ -184,13 +184,13 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                
+
                 <blockquote className="text-professional-gray mb-6 italic">
                   "{story.quote}"
                 </blockquote>
-                
+
                 <div className="flex items-center">
-                  <img 
+                  <img
                     src={story.image}
                     alt={story.author}
                     className="w-12 h-12 rounded-full object-cover mr-4"
@@ -211,24 +211,24 @@ const Training: React.FC<TrainingProps> = ({ onNavigate }) => {
           <p className="text-lg mb-8 opacity-90">
             Join thousands of learners who have built sustainable digital careers through our programs.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => onNavigate('training-application')}
               className="group inline-flex items-center justify-center px-8 py-4 bg-knowledge-teal text-white font-semibold rounded-lg hover:bg-knowledge-teal/90 transition-all duration-200"
             >
               Apply for Training Programs
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </button>
-            <button 
+            <button
               onClick={() => handleWhatsAppContact()}
               className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all duration-200"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Chat on WhatsApp
             </button>
-            <button 
-              onClick={() => onNavigate('contact')}
+            <button
+              onClick={() => onNavigate('coming-soon')}
               className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-eservice-blue transition-all duration-200"
             >
               Request Scholarship Information
