@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     ];
 
     return (
-        <footer className="bg-professional-gray text-white">
+        <footer className="bg-gradient-to-r from-eservice-blue to-knowledge-teal rounded-2xl p-8 lg:p-12 text-white mb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid lg:grid-cols-5 gap-8 mb-12">
                     {/* Company Info */}
