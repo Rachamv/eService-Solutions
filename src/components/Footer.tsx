@@ -109,34 +109,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           ))}
         </div>
 
-        {/* Community Impact */}
-        <div className="bg-eservice-blue/20 rounded-2xl p-8 mb-12">
-          <div className="text-center">
-            <h4 className="text-xl font-bold text-white mb-4">Community Impact Commitment</h4>
-            <p className="text-gray-300 mb-6">
-              10% of our profits are reinvested in community programs, scholarships, and free training for underserved groups.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-knowledge-teal">200+</div>
-                <div className="text-sm text-gray-300">Free Workshops</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-knowledge-teal">50+</div>
-                <div className="text-sm text-gray-300">Scholarships Awarded</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-knowledge-teal">85%</div>
-                <div className="text-sm text-gray-300">Job Placement Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-knowledge-teal">10,000</div>
-                <div className="text-sm text-gray-300">2035 Goal</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-600 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">

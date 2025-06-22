@@ -38,6 +38,13 @@ const About: React.FC = () => {
     { year: '2031-2035', title: 'Continental Transformation', description: 'Achieve 10,000 individuals trained and transform 1,000+ businesses' }
   ];
 
+  const communityMetrics = [
+    { label: 'Free Workshops', value: '200+', description: 'delivered to communities' },
+    { label: 'Scholarships Awarded', value: '50+', description: 'for underserved groups' },
+    { label: 'Job Placement Rate', value: '85%', description: 'for bootcamp graduates' },
+    { label: '2035 Goal', value: '10,000', description: 'individuals trained' }
+  ];
+
   return (
     <section id="about" className="py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -186,7 +193,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Looking Forward */}
-        <div className="bg-gradient-to-r from-eservice-blue to-knowledge-teal rounded-2xl p-8 lg:p-12 text-white">
+        <div className="bg-gradient-to-r from-eservice-blue to-knowledge-teal rounded-2xl p-8 lg:p-12 text-white mb-20">
           <h3 className="text-2xl font-bold text-center mb-12">Looking Forward</h3>
           
           <div className="grid lg:grid-cols-3 gap-8">
@@ -204,6 +211,32 @@ const About: React.FC = () => {
 
           <div className="text-center mt-12">
             <p className="text-xl font-medium italic opacity-90">
+              Building the future, one skill at a time.
+            </p>
+          </div>
+        </div>
+
+        {/* Community Impact Commitment */}
+        <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-eservice-blue mb-4">Community Impact Commitment</h3>
+            <p className="text-lg text-professional-gray max-w-3xl mx-auto">
+              10% of our profits are reinvested in community programs, scholarships, and free training for underserved groups.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {communityMetrics.map((metric, index) => (
+              <div key={index} className="text-center p-6 bg-light-gray rounded-xl hover:shadow-md transition-all duration-300">
+                <div className="text-3xl font-bold text-knowledge-teal mb-2">{metric.value}</div>
+                <div className="font-semibold text-eservice-blue mb-2">{metric.label}</div>
+                <div className="text-sm text-professional-gray">{metric.description}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-xl font-medium italic text-knowledge-teal">
               Building the future, one skill at a time.
             </p>
           </div>
